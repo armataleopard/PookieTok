@@ -1,0 +1,382 @@
+/* Global Styles */
+:root {
+    --primary-color: #f3e9db; /* Pookie beige */
+    --accent-color: #8b5cf6; /* Purple from logo */
+    --accent-color-2: #38b2ac; /* Teal from the can */
+    --dark-text: #2d3748;
+    --light-text: #4a5568;
+    --background: #fff;
+    --container-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--dark-text);
+    background-color: var(--background);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* Custom Cursor */
+.cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-image: url('banner.jpg');
+    background-size: 400%;
+    background-position: center;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none; /* Will be shown with JS */
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #fff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--light-text);
+}
+
+.hero-image-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Adventures Section */
+.adventures-section {
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.adventures-section h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: var(--accent-color);
+}
+
+.adventures-carousel {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.carousel-container {
+    overflow: hidden;
+    margin: 0 40px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.adventure-card {
+    flex: 0 0 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.7;
+    transition: opacity 0.5s ease;
+}
+
+.adventure-card.active {
+    opacity: 1;
+}
+
+.adventure-image {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.adventure-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.adventure-content {
+    max-width: 700px;
+}
+
+.adventure-content h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--accent-color-2);
+}
+
+.adventure-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--light-text);
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: var(--accent-color-2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* Promise Section */
+.promise-section {
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.promise-section h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+
+.promise-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.promise-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    color: var(--light-text);
+}
+
+.floating-pookies {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Community Section */
+.community-section {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+}
+
+.community-section h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.community-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.twitter-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 30px;
+    background-color: #1da1f2;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.twitter-btn svg {
+    margin-right: 10px;
+}
+
+.twitter-btn:hover {
+    background-color: #0c85d0;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+.footer {
+    background-color: #f9f9f9;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.copyright {
+    margin-bottom: 10px;
+    color: var(--light-text);
+}
+
+.disclaimer {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .title {
+        font-size: 4rem;
+    }
+    
+    .adventure-card {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 0;
+    }
+    
+    .title {
+        font-size: 3rem;
+    }
+    
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .adventures-section h2,
+    .promise-section h2,
+    .community-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .adventure-image {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 40px 0;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .adventures-section h2,
+    .promise-section h2,
+    .community-section h2 {
+        font-size: 2rem;
+    }
+    
+    .adventure-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .carousel-btn {
+        width: 30px;
+        height: 30px;
+    }
+} 
